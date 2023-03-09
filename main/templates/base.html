@@ -130,9 +130,28 @@
 
                     </ul>
                 </li>
-                                <li class="has-submenu">
-                    <a href="{% url 'usersapp:login'%}">Вход</a>
+                {% if user.is_authenticated%}
+
+                <li class="has-submenu">
+                    <a>Привет,{{user.username}}</a>
                 </li>
+
+                <li>
+                    <a href="{% url 'usersapp:logout'%}">Выход</a>
+                </li>
+                {%else%}
+
+                <li class="has-submenu">
+                    <a href="{% url 'usersapp:login'%}">Вход</a>
+                    <span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li>
+                            <a href="{% url 'usersapp:register'%}">Регистрация</a>
+                        </li>
+
+                    </ul>
+                </li>
+                {%endif%}
 
             </ul>
             <!-- End navigation menu-->
