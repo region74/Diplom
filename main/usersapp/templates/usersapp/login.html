@@ -6,11 +6,11 @@
 {%endblock%}
 {% block content%}
 
-<form method="post" class="uniForm">
-    <div align="center" class="form-group">
+<form method="post">
+    <div align="center">
         {% csrf_token%}
-
-        {{form.as_p}}
+        {{form|crispy}}
+        <!--        {{form.username|as_crispy_field}}-->
         <button type="submit" class="btn btn-outline-success">Войти</button>
     </div>
 </form>
