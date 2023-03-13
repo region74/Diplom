@@ -11,6 +11,13 @@ from .models import Link
 
 
 class MakeShortMixin(ContextMixin):
+
+    # def custom_redirect(request, short_link):
+    #     link = Link.objects.get(link_from=link_from)
+    #     link.counter = F('counter') + 1
+    #     link.save(update_fields=['counter'])
+    #     return redirect(link.link_to)
+
     def post(self, request, *args, **kwargs):
         make = request.POST['name']
         com = Command(make)
@@ -33,4 +40,16 @@ class ResultView(ListView):
 
     def get_queryset(self):
         return Link.objects.select_related().all()
+
 # Create your views here.
+# def update_count_ajax(request):
+#     link = request.link
+#     tmp = int(link.count)
+#     tmp+=1
+#
+#     user.auth_token.delete()
+#     token = Token.objects.create(user=user)
+#
+# else:
+# token = Token.objects.create(user=user)
+# return JsonResponse({'key': token.key})
