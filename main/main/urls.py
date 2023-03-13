@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mainapp.urls', namespace='mainapp')),
     path('users/', include('usersapp.urls', namespace='usersapp')),
+    path('shorturl/', include('shorturl.urls', namespace='shorturl'))
 ]
