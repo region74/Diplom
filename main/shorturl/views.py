@@ -12,13 +12,6 @@ from django.db.models import F
 
 
 class MakeShortMixin(ContextMixin):
-
-    # def custom_redirect(request, short_link):
-    #     link = Link.objects.get(link_from=link_from)
-    #     link.counter = F('counter') + 1
-    #     link.save(update_fields=['counter'])
-    #     return redirect(link.link_to)
-
     def post(self, request, *args, **kwargs):
         make = request.POST['name']
         com = Command(make)
@@ -38,17 +31,8 @@ class ResultView(ListView):
     model = Link
     template_name = 'shorturl/result.html'
     paginate_by = 5
+
     # Link.objects.all().update(count=F("count") + 1)
-
-
-    # def get_click(request, queryset):
-        # link = Link.objects.select_related().all()
-        # # link.count+=1
-        # # link.count = F('count')+1
-        # # queryset.update(count=2 F('count'))
-        # queryset.update(count=F('count') + 1)
-        # # link.save(update_fields=['count'])
 
     def get_queryset(self):
         return Link.objects.select_related().all()
-
