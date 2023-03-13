@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<body>
+<div><span>Счётчик:</span><span id="someCounter">0</span></div>
+</body>
+
+<script type="text/javascript">
+    const currHREF = window.location.href;
+    const currCounter = localStorage.getItem(currHREF);
+    const toSave = currCounter ? +currCounter + 1 : 1;
+    localStorage.setItem(currHREF, toSave);
+    const counter = document.getElementById("someCounter");
+    counter.textContent = toSave;
+
+</script>
+</html>

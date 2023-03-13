@@ -179,6 +179,7 @@
                 <div class="text-center bg-white p-5">
                     <h1 class="text-uppercase"><span class="font-weight-300">Hi. We are</span> IT-work</h1>
                     <h6 class="font-weight-300 text-muted mt-3 text-uppercase">Design | Development | Branding </h6>
+
                 </div>
             </div>
         </div>
@@ -248,6 +249,16 @@
 
 <!-- javascript -->
 <script src="{% static 'js/jquery-3.6.0.min.js'%}"></script>
+<script type="text/javascript">
+    const currHREF = window.location.href;
+    const currCounter = localStorage.getItem(currHREF);
+    const toSave = currCounter ? +currCounter + 1 : 1;
+    localStorage.setItem(currHREF, toSave);
+    const counter = document.getElementById("someCounter");
+    counter.textContent = toSave;
+
+
+</script>
 <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
 <script src="{% static 'js/jquery.easing.min.js'%}"></script>
 <script src="{% static 'js/scrollspy.min.js'%}"></script>

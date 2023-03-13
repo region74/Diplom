@@ -23,6 +23,10 @@ SECRET_KEY = 'django-insecure-$=3fks8ums_(+&epwh*(*=fkx+p!0i%t2(4c46#7=2qr6)6hl_
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+if DEBUG:
+    import mimetypes
+
+    mimetypes.add_type("application/javascript", ".js", True)
 
 ALLOWED_HOSTS = []
 
@@ -65,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'shorturl.context_processors.add_count'
             ],
         },
     },

@@ -8,6 +8,7 @@ from django.urls import reverse, reverse_lazy
 from .management.commands.short_url import Command
 from .forms import MakeForm
 from .models import Link
+from django.db.models import F
 
 
 class MakeShortMixin(ContextMixin):
@@ -37,19 +38,17 @@ class ResultView(ListView):
     model = Link
     template_name = 'shorturl/result.html'
     paginate_by = 5
+    # Link.objects.all().update(count=F("count") + 1)
+
+
+    # def get_click(request, queryset):
+        # link = Link.objects.select_related().all()
+        # # link.count+=1
+        # # link.count = F('count')+1
+        # # queryset.update(count=2 F('count'))
+        # queryset.update(count=F('count') + 1)
+        # # link.save(update_fields=['count'])
 
     def get_queryset(self):
         return Link.objects.select_related().all()
 
-# Create your views here.
-# def update_count_ajax(request):
-#     link = request.link
-#     tmp = int(link.count)
-#     tmp+=1
-#
-#     user.auth_token.delete()
-#     token = Token.objects.create(user=user)
-#
-# else:
-# token = Token.objects.create(user=user)
-# return JsonResponse({'key': token.key})

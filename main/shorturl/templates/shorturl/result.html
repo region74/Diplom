@@ -4,14 +4,16 @@
 {%block title%}
 Короткие ссылки
 {%endblock%}
+
 {%block content%}
+
+
 {%for item in object_list%}
 <div>
-    Исходная ссылка: <a href="{{item.fullurl}}">{{item.fullurl}}</a><br>
-    Короткая ссылка: <a href="{{item.newurl}}">{{item.newurl}}</a><br>
+    Исходная ссылка: <a href="{{item.fullurl}}" target="_blank">{{item.fullurl}}</a><br>
+    Короткая ссылка: <a href="{{item.newurl}}" target="_blank">{{item.newurl}}</a><br>
     Дата создания: {{item.create}}<br>
-    Обращений: {{item.count}}<br>
-
+    Обращений:<span id="someCounter">0</span>
 </div>
 <hr>
 {%endfor%}
