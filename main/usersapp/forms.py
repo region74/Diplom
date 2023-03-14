@@ -7,9 +7,3 @@ class RegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'password1', 'password2', 'email')
-        # widgets = {
-        #     'username': forms.TextInput(attrs={'class': 'form-control', 'size':'10'}),
-        #     'password1': forms.TextInput(attrs={'class': 'form-control'}),
-        #     'password2': forms.TextInput(attrs={'class': 'form-control'}),
-        #     'email': forms.TextInput(attrs={'class': 'form-control'}),
-        # }

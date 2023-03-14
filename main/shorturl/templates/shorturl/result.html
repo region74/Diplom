@@ -6,14 +6,13 @@
 {%endblock%}
 
 {%block content%}
-
+Посещений:<span id="someCounter">0</span><br><hr>
 
 {%for item in object_list%}
 <div>
     Исходная ссылка: <a href="{{item.fullurl}}" target="_blank">{{item.fullurl}}</a><br>
     Короткая ссылка: <a href="{{item.newurl}}" target="_blank">{{item.newurl}}</a><br>
     Дата создания: {{item.create}}<br>
-    Обращений:<span id="someCounter">0</span>
 </div>
 <hr>
 {%endfor%}

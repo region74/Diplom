@@ -141,6 +141,12 @@
                 {% if user.is_authenticated%}
                 <li class="has-submenu">
                     <a href="{% url 'shorturl:make'%}">Короткие ссылки</a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="{% url 'shorturl:result'%}">Результаты</a>
+                        </li>
+
+                    </ul>
                 </li>
 
                 <li class="has-submenu">
@@ -256,6 +262,8 @@
     localStorage.setItem(currHREF, toSave);
     const counter = document.getElementById("someCounter");
     counter.textContent = toSave;
+
+
 
 
 </script>
